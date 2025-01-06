@@ -32,7 +32,7 @@ A modern, responsive website dedicated to showcasing Vincent van Gogh's artwork 
 - Bootstrap 5.3.2
 - JavaScript (Vanilla)
 - Bootstrap Icons
-- Google Maps Embed API
+- Google Maps Embed
 
 ## Project Structure
 
