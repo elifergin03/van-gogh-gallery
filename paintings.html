@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paintings</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <meta charset="UTF-8">
+    <title>Paintings - Vincent van Gogh Gallery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .painting-modal .modal-dialog {
+            max-width: 800px;  /* Reduced from modal-xl */
+        }
+        
+        .painting-modal .modal-body img {
+            max-height: 60vh;  /* Limit image height to 60% of viewport height */
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Add new styles for parallax effect */
+        .card {
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease;
+            perspective: 1000px;
+        }
+
+        .card-img-top {
+            transform: translateZ(20px);
+            transition: transform 0.1s ease;
+        }
+
+        .card-body {
+            transform: translateZ(10px);
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/logo.png" alt="Gallery Logo" class="logo-img">
+                    <span>Van Gogh Gallery</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="paintings.html">Paintings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exhibitions.html">Exhibitions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container py-5">
+        <h1 class="text-center mb-5 page-title">Art Collection</h1>
+        
+        <div class="row g-4">
+            <!-- Vertical Paintings -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal2">
+                    <img src="images/slider2_compressed.jpeg" class="card-img-top" alt="Sunflowers">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Sunflowers (1888)</h5>
+                        <p class="card-text">Oil on canvas, National Gallery, London</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal7">
+                    <img src="images/self-portrait_compressed.jpeg" class="card-img-top" alt="Self Portrait">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Self Portrait (1889)</h5>
+                        <p class="card-text">Oil on canvas, Musée d'Orsay, Paris</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal3">
+                    <img src="images/slider3_compressed.jpeg" class="card-img-top" alt="Café Terrace at Night">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Café Terrace at Night (1888)</h5>
+                        <p class="card-text">Oil on canvas, Kröller-Müller Museum</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Paintings -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal1">
+                    <img src="images/slider1_compressed.jpeg" class="card-img-top" alt="The Starry Night">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The Starry Night (1889)</h5>
+                        <p class="card-text">Oil on canvas, Museum of Modern Art, New York</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal5">
+                    <img src="images/irises_compressed.jpeg" class="card-img-top" alt="Irises">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Irises (1889)</h5>
+                        <p class="card-text">Oil on canvas, J. Paul Getty Museum, Los Angeles</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal4">
+                    <img src="images/bedroom_compressed.jpeg" class="card-img-top" alt="The Bedroom">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The Bedroom (1888)</h5>
+                        <p class="card-text">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal6">
+                    <img src="images/yellow-house_compressed.jpeg" class="card-img-top" alt="The Yellow House">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The Yellow House (1888)</h5>
+                        <p class="card-text">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal8">
+                    <img src="images/almond-blossoms_compressed.jpeg" class="card-img-top" alt="Almond Blossoms">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Almond Blossoms (1890)</h5>
+                        <p class="card-text">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#modal9">
+                    <img src="images/potato-eaters_compressed.jpeg" class="card-img-top" alt="The Potato Eaters">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The Potato Eaters (1885)</h5>
+                        <p class="card-text">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/slider1_compressed.jpeg" class="img-fluid rounded mb-3" alt="The Starry Night">
+                    <div class="mt-3">
+                        <h3>The Starry Night (1889)</h3>
+                        <p class="text-muted">Oil on canvas, Museum of Modern Art, New York</p>
+                        <p class="mt-3">One of Van Gogh's most famous works, painted while he was staying in the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, France, after
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/slider1_compressed.jpeg" class="img-fluid rounded mb-3" alt="Sunflowers">
+                    <div class="mt-3">
+                        <h3>Sunflowers (1888)</h3>
+                        <p class="text-muted">Oil on canvas, National Gallery, London</p>
+                        <p class="mt-3">Van Gogh painted several versions of Sunflowers in Arles, France, in 1888 and 1889. These paintings are among his most famous and are known for their vibrant colors and expressive brushwork.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/slider3_compressed.jpeg" class="img-fluid rounded mb-3" alt="Café Terrace at Night">
+                    <div class="mt-3">
+                        <h3>Café Terrace at Night (1888)</h3>
+                        <p class="text-muted">Oil on canvas, Kröller-Müller Museum</p>
+                        <p class="mt-3">This painting depicts a café in Arles, France, at night. It is one of the first paintings in which Van Gogh used a starry sky as a background, a theme he would revisit in The Starry Night.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/bedroom_compressed.jpeg" class="img-fluid rounded mb-3" alt="The Bedroom">
+                    <div class="mt-3">
+                        <h3>The Bedroom (1888)</h3>
+                        <p class="text-muted">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                        <p class="mt-3">This painting depicts Van Gogh's bedroom in Arles, France. It is one of three versions of the painting, each with slight variations in color and detail.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/irises_compressed.jpeg" class="img-fluid rounded mb-3" alt="Irises">
+                    <div class="mt-3">
+                        <h3>Irises (1889)</h3>
+                        <p class="text-muted">Oil on canvas, J. Paul Getty Museum, Los Angeles</p>
+                        <p class="mt-3">Van Gogh painted Irises while he was staying at the Saint-Paul-de-Mausole asylum in Saint-Rémy-de-Provence, France. The painting is known for its vibrant colors and dynamic composition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal6" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/yellow-house_compressed.jpeg" class="img-fluid rounded mb-3" alt="The Yellow House">
+                    <div class="mt-3">
+                        <h3>The Yellow House (1888)</h3>
+                        <p class="text-muted">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                        <p class="mt-3">This painting depicts the house in Arles, France, where Van Gogh lived and worked for a time. The house is known for its bright yellow color, which Van Gogh used to symbolize hope and friendship.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal7" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/self-portrait_compressed.jpeg" class="img-fluid rounded mb-3" alt="Self Portrait">
+                    <div class="mt-3">
+                        <h3>Self Portrait (1889)</h3>
+                        <p class="text-muted">Oil on canvas, Musée d'Orsay, Paris</p>
+                        <p class="mt-3">This self-portrait is one of many that Van Gogh painted during his lifetime. It is known for its intense gaze and vibrant colors, which reflect Van Gogh's emotional state at the time.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal8" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/almond-blossoms_compressed.jpeg" class="img-fluid rounded mb-3" alt="Almond Blossoms">
+                    <div class="mt-3">
+                        <h3>Almond Blossoms (1890)</h3>
+                        <p class="text-muted">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                        <p class="mt-3">This painting was created to celebrate the birth of Van Gogh's nephew, Vincent Willem. The almond blossoms symbolize new life and hope, and the painting is known for its delicate beauty and vibrant colors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade painting-modal" id="modal9" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <img src="images/potato-eaters_compressed.jpeg" class="img-fluid rounded mb-3" alt="The Potato Eaters">
+                    <div class="mt-3">
+                        <h3>The Potato Eaters (1885)</h3>
+                        <p class="text-muted">Oil on canvas, Van Gogh Museum, Amsterdam</p>
+                        <p class="mt-3">This painting depicts a group of peasants eating potatoes by lamplight. It is one of Van Gogh's early works and is known for its dark, earthy tones and expressive brushwork.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer text-center p-3">
+        <span class="footer-text">&copy; 2025 Van Gogh Gallery. All rights reserved.</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = -(x - centerX) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

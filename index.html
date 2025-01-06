@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <!-- Responsive Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main Header -->
+    <header class="main-header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="images/logo.png" alt="Gallery Logo" class="logo-img">
+                    <span>Van Gogh Gallery</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="paintings.html">Paintings</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="exhibitions.html">Exhibitions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="parallax-container">
+        <div class="parallax-image"></div>
+        <div class="parallax-content">
+            <div class="carousel-caption">
+                <h1 class="page-title text-white">Welcome to Van Gogh Gallery</h1>
+                <p class="lead">Experience the masterpieces of one of history's greatest artists!</p>
+                <a href="paintings.html" class="btn btn-primary btn-lg mt-3">Explore Gallery</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Sections -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-info-circle fs-1 mb-3"></i>
+                            <h3>About the Artist</h3>
+                            <p>Learn about Van Gogh's life</p>
+                            <a href="about.html" class="btn btn-outline-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-palette fs-1 mb-3"></i>
+                            <h3>Explore Paintings</h3>
+                            <p>Discover Van Gogh's most iconic works</p>
+                            <a href="paintings.html" class="btn btn-outline-primary">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="bi bi-calendar-event fs-1 mb-3"></i>
+                            <h3>Current Exhibitions</h3>
+                            <p>See what's on display now</p>
+                            <a href="exhibitions.html" class="btn btn-outline-primary">View Events</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center p-3">
+        <span class="footer-text">&copy; 2025 Van Gogh Gallery. All rights reserved.</span>
+    </footer>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const container = document.querySelector('.parallax-container');
+        const image = document.querySelector('.parallax-image');
+
+        container.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            
+            image.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) scale(1.1)`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            image.style.transform = 'rotateY(0deg) rotateX(0deg) scale(1.1)';
+        });
+    </script>
+</body>
+</html>
